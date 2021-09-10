@@ -48,33 +48,39 @@
       </div>
     </div>
 
-    <div class="card card-secondary" v-bind:style="{ color: getTextColor(images[currentIndex]) }">
-      <a class="card-close text-muted" v-on:click="hideCard('web')">
-        <i class="far fa-times-circle"></i>
-      </a>
-      <div class="card-body" v-if="isCardActive('web')">
-        <h5 class="card-title">Web Development</h5>
-        <p>I've worked on numerous projects </p>
+    <div class="card card-secondary" v-bind:style="{ color: getTextColor(images[currentIndex]) }" v-if="isCardActive('web')">
+      <div class="card-header">
+        <a class="card-close" v-on:click="hideCard('web')">
+          <i class="far fa-times-circle"></i>
+        </a>
+        Web Development
+      </div>
+      <div class="card-body">
+        I've worked on numerous projects
       </div>
     </div>
 
-    <div class="card card-secondary" v-bind:style="{ color: getTextColor(images[currentIndex]) }">
-      <a class="card-close text-muted" v-on:click="hideCard('ui')">
-        <i class="far fa-times-circle"></i>
-      </a>
-      <div class="card-body" v-if="isCardActive('ui')">
-        <h5 class="card-title">UI/UX</h5>
-        <p>I've worked on numerous projects </p>
+    <div class="card card-secondary" v-bind:style="{ color: getTextColor(images[currentIndex]) }" v-if="isCardActive('ui')">
+      <div class="card-header">
+        <a class="card-close" v-on:click="hideCard('ui')">
+          <i class="far fa-times-circle"></i>
+        </a>
+        UI/UX
+      </div>
+      <div class="card-body">
+        I've worked on numerous projects
       </div>
     </div>
 
-    <div class="card card-secondary" v-bind:style="{ color: getTextColor(images[currentIndex]) }">
-      <a class="card-close text-muted" v-on:click="hideCard('music')">
-        <i class="far fa-times-circle"></i>
-      </a>
-      <div class="card-body" v-if="isCardActive('music')">
-        <h5 class="card-title">Music Production</h5>
-        <p>I've worked on numerous projects </p>
+    <div class="card card-secondary" v-bind:style="{ color: getTextColor(images[currentIndex]) }" v-if="isCardActive('music')">
+      <div class="card-header">
+        <a class="card-close" v-on:click="hideCard('music')">
+          <i class="far fa-times-circle"></i>
+        </a>
+        Music Production
+      </div>
+      <div class="card-body">
+        I've worked on numerous projects
       </div>
     </div>
 

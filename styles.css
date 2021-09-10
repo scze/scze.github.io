@@ -34,6 +34,10 @@
   -webkit-filter: blur(10x);
 }
 
+.card-header {
+  position: relative;
+}
+
 .card-close {
   position: absolute;
   top: 5px;
