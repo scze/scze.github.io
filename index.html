@@ -70,14 +70,17 @@
     images = shuffle(images);
 
     const body = document.body;
+    const photography = document.getElementById('photography');
+
     let index = 0;
+    let timeout;
     const nextImage = () => body.style.backgroundImage = `url(${images[index++]})`;
-    const cycle = () => setTimeout(() => { nextImage(); cycle() }, 7000);
+    const cycle = () => timeout = setTimeout(() => { nextImage(); cycle() }, 7000);
 
     nextImage();
     cycle();
 
-    document.getElementById('photography').addEventListener('click', nextImage);
+    photography.addEventListener('click', () => { clearTimeout(timeout); nextImage(); cycle(); });
 
   </script>
 
