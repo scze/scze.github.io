@@ -1,12 +1,15 @@
-.card {
+.card-main {
   color: #FFFFFF;
-  text-shadow: 2px 2px #767777;
+  top: 65vh;
+  left: 10vh;
+  transition: .5s opacity ease-in-out, .2s top ease-in-out;
+  animation: fadeIn 1s;
+}
+
+.card {
   background: inherit;
-  border: none;
   overflow: hidden;
   position: absolute;
-  top: 70vh;
-  left: 10vh;
 }
 
 .card:before {
@@ -17,20 +20,24 @@
   left: 0;
   right: 0;
   content: " ";
-  box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.2);
-  filter: blur(20px);
-  -webkit-filter: blur(20x);
+  box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.1);
+  filter: blur(30px);
+  -webkit-filter: blur(30x);
 }
 
-.card-body {
+.text-shadow {
+  text-shadow: 2px 2px #767777;
+}
+
+.card-header, .card-body, .card-footer {
   z-index: 1;
 }
 
 .images {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100%;
-  transition: .5s background ease-in-out;
+  transition: 1s background ease-in-out;
   top: 0;
   left: 0;
   right: 0;
@@ -38,4 +45,25 @@
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+}
+
+.separator {
+  position: absolute;
+  background: url('images/seestadt.png') center top no-repeat;
+  background-size: cover;
+  background-position-x: 50%;
+  height: 300px;
+  width: 100%;
+  bottom: -300px;
+  transition: .5s opacity ease-in-out;
+  opacity: .5;
+  z-index: 2;
+}
+
+/* Helpers */
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  50%   { opacity: 0; }
+  100% { opacity: 1; }
 }
