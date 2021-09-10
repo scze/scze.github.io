@@ -74,7 +74,11 @@
 
     let index = 0;
     let timeout;
-    const nextImage = () => body.style.backgroundImage = `url(${images[index++]})`;
+    const nextImage = () => {
+      index === images.length ? 0 : index + 1;
+      body.style.backgroundImage = `url(${images[index]})`
+    };
+
     const cycle = () => timeout = setTimeout(() => { nextImage(); cycle() }, 7000);
 
     nextImage();
