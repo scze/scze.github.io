@@ -1,14 +1,15 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
 body {
   background-attachment: fixed;
   background-color: #0dab76;
   background-position: center;
   background-size: cover;
-  bottom: 0;
   color: #ffffff;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
   transition: 1s background ease-in-out;
 }
 
