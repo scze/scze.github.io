@@ -98,10 +98,6 @@ var images = [{
     title: ''
   },
   {
-    url: 'images/gallery/altedonau.jpg',
-    title: ''
-  },
-  {
     url: 'images/gallery/havana.jpg	',
     title: ''
   },
