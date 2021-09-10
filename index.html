@@ -19,31 +19,31 @@
 
 <body id="body">
 
-  <div id="main" class="images" v-bind:style="{ backgroundImage: 'url(' + images[currentIndex].url + ')'}">
+  <div id="main" class="images" v-bind:style="{ backgroundImage: 'url(' + images[currentIndex].url + ')', backgroundPosition: getPosition(images[currentIndex]) }">
     
     <div class="card card-main fade-in">
 
       <div class="card-body">
         <h1 class="display-4 text-shadow">sebastian czekierski</h1>
 
-        <a class="btn btn-sm btn-outline-dark" href="#web">
+        <a class="text-dark" href="#web">
           <i class="fas fa-globe-europe mr-2"></i>Web Development
         </a> &#8226;
-        <a class="btn btn-sm btn-outline-dark" href="#">
+        <a class="text-dark" href="#">
           <i class="fas fa-palette mr-2"></i>UI/UX
         </a> &#8226; 
-        <a class="btn btn-sm btn-outline-dark" href="#">
+        <a class="text-dark" href="#">
           <i class="fas fa-camera mr-2"></i>Photography
         </a> &#8226; 
-        <a class="btn btn-sm btn-outline-dark" href="#">
+        <a class="text-dark" href="#">
           <i class="fas fa-headphones mr-2"></i>Music Production
         </a>
       </div>
 
       <div class="card-footer">
-        <a href="https://linkedin.com/in/scze"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://twitter.com/seb_cze"><i class="fab fa-twitter"></i></a>
-        <a href="https://soundcloud.com/czeknology"><i class="fab fa-soundcloud"></i></a>
+        <a class="text-info" href="https://linkedin.com/in/scze"><i class="fab fa-linkedin-in"></i></a>
+        <a class="text-info" href="https://twitter.com/seb_cze"><i class="fab fa-twitter"></i></a>
+        <a class="text-info" href="https://soundcloud.com/czeknology"><i class="fab fa-soundcloud"></i></a>
       </div>
     </div>
   </div>

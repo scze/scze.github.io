@@ -5,6 +5,11 @@ window.onload = function () {
     data: {
       currentIndex: 0,
       images: images
+    },
+    methods: {
+      getPosition(image) {
+        return image.position || 'center';
+      }
     }
   });
 
@@ -38,12 +43,9 @@ var images = [{
   title: ''
 }].concat(shuffle([
   {
-    url: 'images/gallery/sanblas.jpg',
-    title: ''
-  },
-  {
     url: 'images/gallery/hampi.jpg',
-    title: ''
+    title: '',
+    position: '50% 10%'
   },
   {
     url: 'images/gallery/aermenia.jpg',
@@ -59,11 +61,13 @@ var images = [{
   },
   {
     url: 'images/gallery/sanblas.jpg',
-    title: ''
+    title: '',
+    position: '50% 10%'
   },
   {
     url: 'images/gallery/aixenprovence.jpg',
-    title: ''
+    title: '',
+    position: '50% 70%'
   },
   {
     url: 'images/gallery/cuba.jpeg',
@@ -71,10 +75,6 @@ var images = [{
   },
   {
     url: 'images/gallery/sarajevo.jpeg',
-    title: ''
-  },
-  {
-    url: 'images/gallery/hampi.jpg	',
     title: ''
   },
   {
@@ -107,7 +107,8 @@ var images = [{
   },
   {
     url: 'images/gallery/trinidad.jpg',
-    title: ''
+    title: '',
+    position: '50% 70%'
   },
   {
     url: 'images/gallery/hoehenrausch.jpeg',
@@ -139,7 +140,8 @@ var images = [{
   },
   {
     url: 'images/gallery/ica2.jpg	',
-    title: ''
+    title: '',
+    position: '50% 30%'
   },
   {
     url: 'images/gallery/posthalle.jpeg',
