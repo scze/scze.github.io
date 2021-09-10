@@ -27,10 +27,6 @@ window.onload = function () {
   cycle();
 }
 
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
-
 function shuffle(a) {
   var j, x, i;
   for (i = a.length - 1; i > 0; i--) {
