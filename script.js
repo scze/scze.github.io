@@ -15,9 +15,8 @@ window.onload = function () {
     el: '#images',
     data: {
       currentIndex: 0,
-      top: 0,
       images: [{
-        url: 'images/gallery/alteDonau.jpg',
+        url: 'images/gallery/altedonau.jpg',
         title: ''
       }].concat(shuffle([
         {
@@ -81,19 +80,11 @@ window.onload = function () {
           title: ''
         },
         {
-          url: 'images/gallery/alleppey2.jpeg',
-          title: ''
-        },
-        {
           url: 'images/gallery/hampi2.jpeg	',
           title: ''
         },
         {
           url: 'images/gallery/miramare.jpeg',
-          title: ''
-        },
-        {
-          url: 'images/gallery/triglav.jpg',
           title: ''
         },
         {
@@ -169,10 +160,6 @@ window.onload = function () {
           title: ''
         },
         {
-          url: 'images/gallery/panama3.jpeg',
-          title: ''
-        },
-        {
           url: 'images/gallery/cartagena2.jpg',
           title: ''
         },
@@ -196,14 +183,12 @@ window.onload = function () {
     }
   });
 
-  var calcImagesTop = function() {
+  var cycle = function() {
     setTimeout(() => {
-      images.currentIndex = images.currentIndex < images.images.length - 1
-        ? images.currentIndex + 1
-        : 0;
-      calcImagesTop();
+      images.currentIndex = images.currentIndex < images.images.length - 1 ? images.currentIndex + 1 : 0;
+      cycle();
     }, 5000);
   }
 
-  calcImagesTop();
+  cycle();
 }

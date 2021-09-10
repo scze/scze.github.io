@@ -17,15 +17,11 @@
   <script type="text/javascript" src="script.js"></script>
 </head>
 
-<body>
+<body id="body">
 
-  <div id="images" class="images" v-bind:style="{ top: (-100 * currentIndex) + 'vh' }">
-    <div class="image-full" v-bind:style="{ backgroundImage: 'url(' + image.url + ')', marginTop: 100 * index + 'vh'}" v-for="(image, index) in images"></div>
-  </div>
-
-  <div class="container">
-
-    <div class="card card-main">
+  <div id="images" class="images" v-bind:style="{ backgroundImage: 'url(' + images[currentIndex].url + ')'}">
+    
+    <div class="card">
       <div class="card-body">
         <h1 class="display-4">sebastian czekierski</h1>
         <p class="lead">
@@ -35,22 +31,6 @@
           <a href="#">Music Production</a>
         </p>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm">
-        <div class="card" id="web">
-          <h5 class="card-header">
-            Web Development
-          </h5>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Angular, AngularJS</li>
-            <li class="list-group-item">Bootstrap, Material</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-sm"></div>
     </div>
   </div>
 
