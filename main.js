@@ -1,18 +1,32 @@
 import { mainImage, imagesList } from "./images.js";
 
-window.onload = function () {
+var interval = 5000;
+var images = [mainImage].concat(shuffle(imagesList));
 
-  var images = [mainImage].concat(shuffle(imagesList));
+window.onload = function () {
 
   var main = new Vue({
     el: '#main',
     data: {
       currentIndex: 0,
-      images: images
+      images: images,
+      activeCards: []
     },
     methods: {
       getPosition(image) {
         return image.position || 'center';
+      },
+      getTextColor(image) {
+        return image.textColor || '#ffffff';
+      },
+      showCard(card) {
+        this.isCardActive(card) ? null : this.activeCards.push(card);
+      },
+      hideCard(card) {
+        this.isCardActive(card) ? this.activeCards = this.activeCards.filter(c => c !== card) : null
+      },
+      isCardActive(card) {
+        return this.activeCards.indexOf(card) !== -1;
       }
     }
   });
@@ -21,7 +35,7 @@ window.onload = function () {
     setTimeout(() => {
       main.currentIndex = main.currentIndex < main.images.length - 1 ? main.currentIndex + 1 : 0;
       cycle();
-    }, 5000);
+    }, interval);
   }
 
   cycle();
