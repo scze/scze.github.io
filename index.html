@@ -4,87 +4,82 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sebastian Czekierski's personal website">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
   <title>Sebastian Czekierski</title>
   
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="https://cdn.jsdelivr.net/npm/interactjs@1.3.4/dist/interact.min.js"></script>
-  <script type="module" src="./images.js"></script>
-  <script type="module" src="./main.js"></script>
 </head>
 
-<body id="body">
+<body>
 
-  <div id="main" class="images" v-bind:style="{ backgroundImage: 'url(' + images[currentIndex].url + ')', backgroundPosition: getPosition(images[currentIndex]) }">
+  <div class="container">
+    <h1>sebastian czekierski</h1>
     
-    <div class="card card-main fade-in" v-bind:style="{ color: getTextColor(images[currentIndex]) }">
-      <div class="card-body">
-        <h1 class="display-4 text-shadow">sebastian czekierski</h1>
-
-        <a class="badge badge-pill badge-dark" v-on:click="showCard('web')">
-          <i class="fas fa-globe-europe mr-2"></i>Web Development
-        </a> &#8226; 
-        <a class="badge badge-pill badge-dark" v-on:click="showCard('ui')">
-          <i class="fas fa-palette mr-2"></i>UI/UX
-        </a> &#8226; 
-        <a class="badge badge-pill badge-dark" v-on:click="showCard('music')">
-          <i class="fas fa-headphones mr-2"></i>Music Production
-        </a> &#8226; 
-        <a class="badge badge-pill badge-dark" v-on:click="showCard('photo')">
-          <i class="fas fa-camera mr-2"></i>Photography
-        </a>
-      </div>
-
-      <div class="card-footer">
-        <a href="https://linkedin.com/in/scze"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://twitter.com/seb_cze"><i class="fab fa-twitter"></i></a>
-        <a href="https://soundcloud.com/czeknology"><i class="fab fa-soundcloud"></i></a>
-      </div>
-    </div>
-
-    <div class="card card-secondary" v-bind:style="{ color: getTextColor(images[currentIndex]) }" v-if="isCardActive('web')">
-      <div class="card-header">
-        <a class="card-close" v-on:click="hideCard('web')">
-          <i class="far fa-times-circle"></i>
-        </a>
-        Web Development
-      </div>
-      <div class="card-body">
-        <a href="https://angular.io/">Angular</a> (previously <a href="https://angularjs.org/">AngularJS</a>)
-      </div>
-    </div>
-
-    <div class="card card-secondary" v-bind:style="{ color: getTextColor(images[currentIndex]) }" v-if="isCardActive('ui')">
-      <div class="card-header">
-        <a class="card-close" v-on:click="hideCard('ui')">
-          <i class="far fa-times-circle"></i>
-        </a>
-        UI/UX
-      </div>
-      <div class="card-body">
-        I have a passion for developing great user experiences as well as clean, responsive UIs.
-      </div>
-    </div>
-
-    <div class="card card-secondary" v-bind:style="{ color: getTextColor(images[currentIndex]) }" v-if="isCardActive('music')">
-      <div class="card-header">
-        <a class="card-close" v-on:click="hideCard('music')">
-          <i class="far fa-times-circle"></i>
-        </a>
-        Music Production
-      </div>
-      <div class="card-body">
-        Check out my music on my <a href="https://soundcloud.com/czeknology">Soundcloud</a> page.
-      </div>
-    </div>
-
+    <ul>
+      <li><a href="https://www.linkedin.com/in/scze">Web Development</a></li>
+      <li><a href="https://www.linkedin.com/in/scze">UI / UX</a></li>
+      <li><a href="https://soundcloud.com/czeknology">Music Production</a></li>
+      <li><button id="photography">Photography</button></li>
+    </ul>
   </div>
+
+  <script>
+
+    const shuffle = (a) => {
+      var j, x, i;
+      for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+      }
+      return a;
+    }
+
+    let images = [
+      'images/gallery/altedonau.jpg',
+      'images/gallery/hampi.jpg',
+      'images/gallery/aermenia.jpg',
+      'images/gallery/cotopaxi2.jpeg',
+      'images/gallery/lisbon.jpeg',
+      'images/gallery/sanblas.jpg',
+      'images/gallery/aixenprovence.jpg',
+      'images/gallery/cuba.jpeg',
+      'images/gallery/sarajevo.jpeg',
+      'images/gallery/marseille.jpg',
+      'images/gallery/miramare.jpeg',
+      'images/gallery/alleppey3.jpeg',
+      'images/gallery/nordbahnhalle.jpeg',
+      'images/gallery/triglav2.jpeg',
+      'images/gallery/havana.jpg	',
+      'images/gallery/oxford.jpeg',
+      'images/gallery/trinidad.jpg',
+      'images/gallery/hoehenrausch.jpeg',
+      'images/gallery/panama.jpeg',
+      'images/gallery/valencia.jpeg',
+      'images/gallery/auschwitz.jpeg',
+      'images/gallery/ica.jpeg	',
+      'images/gallery/panama2.jpeg',
+      'images/gallery/ballestas.jpeg',
+      'images/gallery/ica2.jpg	',
+      'images/gallery/posthalle.jpeg',
+      'images/gallery/cotopaxi.jpg',
+      'images/gallery/prag.jpeg'
+    ];
+
+    images = shuffle(images);
+
+    const body = document.body;
+    let index = 0;
+    const nextImage = () => body.style.backgroundImage = `url(${images[index++]})`;
+    const cycle = () => setTimeout(() => { nextImage(); cycle() }, 7000);
+
+    nextImage();
+    cycle();
+
+    document.getElementById('photography').addEventListener('click', nextImage);
+
+  </script>
 
 </body>
 </html>

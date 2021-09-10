@@ -1,79 +1,49 @@
-.card-main {
-  top: 60vh;
-  left: 10vw;
-}
-
-.card-secondary {
-  top: 65vh;
-  left: 65vw;
-}
-
-.card {
-  background: inherit;
-  overflow: hidden;
-  position: absolute;
-  color: #FFFFFF;
-  transition: .5s opacity ease-in-out, .5s color ease-in-out;
-  animation: fadeIn 1s;
-}
-
-.card .badge {
-  cursor: pointer;
-}
-
-.card:before {
-  background: inherit;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  content: " ";
-  box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.1);
-  filter: blur(10px);
-  -webkit-filter: blur(10x);
-}
-
-.card-header {
-  position: relative;
-}
-
-.card-close {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  z-index: 2;
-  cursor: pointer;
-}
-
-.text-shadow {
-  text-shadow: 2px 2px #767777;
-}
-
-.card-header, .card-body, .card-footer {
-  z-index: 1;
-}
-
-.list-group-item {
-  background-color: transparent;
-}
-
-.images {
-  position: fixed;
-  transition: 1s background ease-in-out;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  color: white;
+  transition: 1s background ease-in-out;
 }
 
-/* Helpers */
+.container {
+  bottom: 50%;
+  height: 5rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-@keyframes fadeIn {
-  0%   { opacity: 0; }
-  50%   { opacity: 0; }
-  100% { opacity: 1; }
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 5rem;
+  line-height: 5rem;
+  margin: 0 1rem;
+  opacity: .75;
+  text-shadow: 2px 2px 2px #0DAB76;
+}
+
+ul li {
+  display: inline;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  opacity: .75;
+}
+
+li + li::before {
+  content: " | ";
+  font-size: 1.5rem;
+}
+
+a, button {
+  background: 0;
+  border: 0;
+  color: #0DAB76;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.5rem;
+  margin: 0;
+  text-decoration: underline;
 }
