@@ -1,47 +1,9 @@
-window.onload = function () {
-
-  var main = new Vue({
-    el: '#main',
-    data: {
-      currentIndex: 0,
-      images: images
-    },
-    methods: {
-      getPosition(image) {
-        return image.position || 'center';
-      }
-    }
-  });
-
-  var cycle = function() {
-    setTimeout(() => {
-      main.currentIndex = main.currentIndex < main.images.length - 1 ? main.currentIndex + 1 : 0;
-      cycle();
-    }, 5000);
-  }
-
-  cycle();
-}
-
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
-
-function shuffle(a) {
-  var j, x, i;
-  for (i = a.length - 1; i > 0; i--) {
-    j = Math.floor(Math.random() * (i + 1));
-    x = a[i];
-    a[i] = a[j];
-    a[j] = x;
-  }
-  return a;
-}
-
-var images = [{
+export const mainImage = {
   url: 'images/gallery/altedonau.jpg',
   title: ''
-}].concat(shuffle([
+};
+
+export const imagesList = [
   {
     url: 'images/gallery/hampi.jpg',
     title: '',
@@ -155,4 +117,4 @@ var images = [{
     url: 'images/gallery/prag.jpeg',
     title: ''
   }
-]))
+]
