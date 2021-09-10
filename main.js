@@ -25,6 +25,7 @@ window.onload = function () {
   }
 
   cycle();
+  initInteract();
 }
 
 function shuffle(a) {
@@ -36,4 +37,27 @@ function shuffle(a) {
     a[j] = x;
   }
   return a;
+}
+
+function initInteract() {
+  interact('.card')
+    .draggable({
+      inertia: true,
+      restrict: {
+        restriction: "parent",
+        endOnly: true,
+        elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+      },
+      autoScroll: true,
+      onmove: dragMoveListener,
+    });
+
+  function dragMoveListener (event) {
+    var target = event.target,
+        x = (parseFloat(target.getBoundingClientRect().left) || 0) + event.dx,
+        y = (parseFloat(target.getBoundingClientRect().top) || 0) + event.dy;
+    
+    target.style.left = x + 'px';
+    target.style.top = y + 'px';
+  }
 }
