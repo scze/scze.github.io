@@ -54,10 +54,11 @@ body {
 .tag {
   display: inline-block;
   background-color: #eeeeee;
-  color: #2e2e2e;
+  color: var(--color);
   border-radius: var(--border-radius);
   padding: .15rem .25rem;
   margin-bottom: .5rem;
+  transition: .2s all ease-in-out;
 }
 
 h1 {
