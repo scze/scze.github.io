@@ -13,11 +13,11 @@
 <body>
 
   <div class="container">
-    <h1>sebastian czekierski</h1>
+    <h1>&lt;sebastian czekierski/&gt;</h1>
     
     <ul>
       <li><a href="https://www.linkedin.com/in/scze">Web Development</a></li>
-      <li><a href="https://www.linkedin.com/in/scze">UI / UX</a></li>
+      <li><a href="https://www.linkedin.com/in/scze">UI/UX</a></li>
       <li><a href="https://soundcloud.com/czeknology">Music Production</a></li>
       <li><button id="photography-button" title="Next picture">Photography</button></li>
     </ul>
@@ -26,9 +26,29 @@
       <button class="gallery-control-btn" id="previous-button"><</button>
       <button class="gallery-control-btn" id="next-button">></button>
     </div>
+
+    <small>Angular, TypeScript, NgRX, RxJS, Angular CLI, Angular Material, Bootstrap, PrimeNG, ng-bootstrap, React, Redux, Django Frontend Templating, Azure Dev Ops, Bamboo, HTML, CSS, JavaScript, PhoneGap/Cordova, Ionic, PWA / Angular Service Worker, Cypress, Miro / Figma / Sketch</small>
+
+    <div class="color-overlay" id="color-overlay"></div>
   </div>
 
   <script>
+
+    const body = document.body;
+    const photographyButton = document.getElementById('photography-button');
+    const previousButton = document.getElementById('previous-button');
+    const nextButton = document.getElementById('next-button');
+    const colorOverlay = document.getElementById('color-overlay');
+
+    // const colors = ['#0dab76', '#2A1E5C', '#2e3138', '#074f57', '#dc136c'];
+    const colors = ['#ef476f', '#ffd166', '#06d6a0', '#118ab2', '#073b4c'];
+
+    const getRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
+
+    const setRandomColor = () => {
+      document.documentElement.style.setProperty('--color', getRandomColor())
+      colorOverlay.style.setProperty('background', `linear-gradient(${getRandomColor()}, ${getRandomColor()}`)
+    };
 
     const shuffle = (a) => {
       var j, x, i;
@@ -74,11 +94,6 @@
 
     images = shuffle(images);
 
-    const body = document.body;
-    const photographyButton = document.getElementById('photography-button');
-    const previousButton = document.getElementById('previous-button');
-    const nextButton = document.getElementById('next-button');
-
     let index = -1;
     let timeout;
 
@@ -88,6 +103,7 @@
 
       const image = new Image();
       image.src = `${images[index - 1]}`;
+      setRandomColor();
     }
 
     const nextImage = () => {
@@ -96,10 +112,12 @@
 
       const image = new Image();
       image.src = `${images[index + 1]}`;
+      setRandomColor();
     };
 
     const cycle = () => timeout = setTimeout(() => { nextImage(); cycle() }, 7000);
 
+    setRandomColor();
     nextImage();
     cycle();
 
