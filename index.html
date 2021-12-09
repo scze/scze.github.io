@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sebastian Czekierski</title>
-  
+
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -14,7 +14,7 @@
 
   <div class="container">
     <h1>&lt;sebastian czekierski/&gt;</h1>
-    
+
     <ul>
       <li><a href="https://www.linkedin.com/in/scze">Web Development</a></li>
       <li><a href="https://www.linkedin.com/in/scze">UI/UX</a></li>
@@ -29,7 +29,7 @@
 
     <small>Angular, TypeScript, NgRX, RxJS, Angular CLI, Angular Material, Bootstrap, PrimeNG, ng-bootstrap, React, Redux, Django Frontend Templating, Azure Dev Ops, Bamboo, HTML, CSS, JavaScript, PhoneGap/Cordova, Ionic, PWA / Angular Service Worker, Cypress, Miro / Figma / Sketch</small>
 
-    <div class="color-overlay" id="color-overlay"></div>
+    <div id="overlay"></div>
   </div>
 
   <script>
@@ -38,17 +38,14 @@
     const photographyButton = document.getElementById('photography-button');
     const previousButton = document.getElementById('previous-button');
     const nextButton = document.getElementById('next-button');
-    const colorOverlay = document.getElementById('color-overlay');
+    const overlay = document.getElementById('overlay');
 
     // const colors = ['#0dab76', '#2A1E5C', '#2e3138', '#074f57', '#dc136c'];
     const colors = ['#ef476f', '#ffd166', '#06d6a0', '#118ab2', '#073b4c'];
 
     const getRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
-
-    const setRandomColor = () => {
-      document.documentElement.style.setProperty('--color', getRandomColor())
-      colorOverlay.style.setProperty('background', `linear-gradient(${getRandomColor()}, ${getRandomColor()}`)
-    };
+    const setRandomColor = () => document.documentElement.style.setProperty('--color', getRandomColor());
+    const setOverlayColor = () => overlay.style.setProperty('background', `linear-gradient(${getRandomColor()}, ${getRandomColor()}`);
 
     const shuffle = (a) => {
       var j, x, i;
@@ -62,34 +59,38 @@
     }
 
     let images = [
-      'images/gallery/altedonau.jpg',
-      'images/gallery/hampi.jpg',
       'images/gallery/aermenia.jpg',
-      'images/gallery/cotopaxi2.jpeg',
-      'images/gallery/lisbon.jpeg',
-      'images/gallery/sanblas.jpg',
       'images/gallery/aixenprovence.jpg',
+      'images/gallery/alleppey3.jpeg',
+      'images/gallery/altedonau.jpg',
+      'images/gallery/ballestas.jpeg',
+      'images/gallery/berlin.jpeg',
+      'images/gallery/book.jpeg',
+      'images/gallery/cinqueterre.jpeg',
+      'images/gallery/cinqueterre2.jpeg',
+      'images/gallery/cotopaxi.jpg',
+      'images/gallery/cotopaxi2.jpeg',
       'images/gallery/cuba.jpeg',
-      'images/gallery/sarajevo.jpeg',
+      'images/gallery/hampi.jpg',
+      'images/gallery/havana.jpg',
+      'images/gallery/hoehenrausch.jpeg',
+      'images/gallery/ica.jpeg',
+      'images/gallery/ica2.jpg',
+      'images/gallery/lisbon.jpeg',
       'images/gallery/marseille.jpg',
       'images/gallery/miramare.jpeg',
-      'images/gallery/alleppey3.jpeg',
       'images/gallery/nordbahnhalle.jpeg',
-      'images/gallery/triglav2.jpeg',
-      'images/gallery/havana.jpg	',
-      'images/gallery/oxford.jpeg',
-      'images/gallery/trinidad.jpg',
-      'images/gallery/hoehenrausch.jpeg',
       'images/gallery/panama.jpeg',
-      'images/gallery/valencia.jpeg',
-      'images/gallery/auschwitz.jpeg',
-      'images/gallery/ica.jpeg	',
       'images/gallery/panama2.jpeg',
-      'images/gallery/ballestas.jpeg',
-      'images/gallery/ica2.jpg	',
       'images/gallery/posthalle.jpeg',
-      'images/gallery/cotopaxi.jpg',
-      'images/gallery/prag.jpeg'
+      'images/gallery/prag.jpeg',
+      'images/gallery/sarajevo.jpeg',
+      'images/gallery/tatemodern.jpeg',
+      'images/gallery/triglav2.jpeg',
+      'images/gallery/trinidad.jpg',
+      'images/gallery/valencia.jpeg',
+      'images/gallery/vietnam1.jpeg',
+      'images/gallery/vietnam2.jpeg'
     ];
 
     images = shuffle(images);
@@ -117,13 +118,14 @@
 
     const cycle = () => timeout = setTimeout(() => { nextImage(); cycle() }, 7000);
 
-    setRandomColor();
-    nextImage();
-    cycle();
-
     photographyButton.addEventListener('click', () => { clearTimeout(timeout); nextImage(); cycle(); });
     previousButton.addEventListener('click', () => { clearTimeout(timeout); previousImage(); cycle(); });
     nextButton.addEventListener('click', () => { clearTimeout(timeout); nextImage(); cycle(); });
+
+    setOverlayColor();
+    setRandomColor();
+    nextImage();
+    cycle();
 
   </script>
 

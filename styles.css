@@ -29,13 +29,13 @@ body {
   padding-right: 20vw;
 }
 
-.color-overlay {
+#overlay {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  transition: .2s all ease-in-out;
+  transition: 1s all ease-in-out;
   z-index: -1;
   opacity: .5;
 }
@@ -54,8 +54,10 @@ h1 {
   font-size: 5rem;
   line-height: 4rem;
   margin: 0 1rem;
-  text-shadow: 2px 2px 2px var(--color);
-  transition: .2s text-shadow ease-in-out;
+  color: var(--color);
+  transition: 1s all ease-in-out;
+  mix-blend-mode: multiply;
+  text-shadow: 1px 1px #ffffff;
 }
 
 ul {
@@ -81,11 +83,13 @@ a, button {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0;
-  padding: 0;
+  padding: .2rem .25rem;
   text-decoration: none;
-  transition: .2s color ease-in-out;
+  transition: .2s all ease-in-out;
+  border-radius: .5rem;
 }
 
 a:hover, button:hover {
-  color: var(--color);
+  background-color: var(--color);
+  mix-blend-mode: multiply;
 }
