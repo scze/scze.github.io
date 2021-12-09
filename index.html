@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#319197">
   <title>Sebastian Czekierski</title>
 
   <link rel="stylesheet" href="styles.css">
@@ -27,7 +28,35 @@
       <button class="gallery-control-btn" id="next-button">></button>
     </div>
 
-    <small>Angular, TypeScript, NgRX, RxJS, Angular CLI, Angular Material, Bootstrap, PrimeNG, ng-bootstrap, React, Redux, Django Frontend Templating, Azure Dev Ops, Bamboo, HTML, CSS, JavaScript, PhoneGap/Cordova, Ionic, PWA / Angular Service Worker, Cypress, Miro / Figma / Sketch</small>
+    <div class="tag-cloud">
+      <span class="tag">Angular</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">NgRX</span>
+      <span class="tag">RxJS</span>
+      <span class="tag">Angular CLI</span>
+      <span class="tag">Angular Material</span>
+      <span class="tag">Bootstrap</span>
+      <span class="tag">PrimeNG</span>
+      <span class="tag">ng-bootstrap</span>
+      <span class="tag">React</span>
+      <span class="tag">Redux</span>
+      <span class="tag">Django</span>
+      <span class="tag">Azure DevOps</span>
+      <span class="tag">AWS</span>
+      <span class="tag">Jira</span>
+      <span class="tag">Bamboo</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">PhoneGap/Cordova</span>
+      <span class="tag">Ionic</span>
+      <span class="tag">PWA</span>
+      <span class="tag">Angular Service Worker</span>
+      <span class="tag">Cypress</span>
+      <span class="tag">Miro</span>
+      <span class="tag">Figma</span>
+      <span class="tag">Sketch</span>
+    </div>
 
     <div id="overlay"></div>
   </div>
@@ -40,12 +69,16 @@
     const nextButton = document.getElementById('next-button');
     const overlay = document.getElementById('overlay');
 
-    // const colors = ['#0dab76', '#2A1E5C', '#2e3138', '#074f57', '#dc136c'];
     const colors = ['#ef476f', '#ffd166', '#06d6a0', '#118ab2', '#073b4c'];
 
     const getRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
-    const setRandomColor = () => document.documentElement.style.setProperty('--color', getRandomColor());
     const setOverlayColor = () => overlay.style.setProperty('background', `linear-gradient(${getRandomColor()}, ${getRandomColor()}`);
+    const setRandomColor = () => {
+      const color = getRandomColor() 
+      document.documentElement.style.setProperty('--color', color);
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
+    };
+
 
     const shuffle = (a) => {
       var j, x, i;
