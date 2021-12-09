@@ -19,8 +19,13 @@
       <li><a href="https://www.linkedin.com/in/scze">Web Development</a></li>
       <li><a href="https://www.linkedin.com/in/scze">UI / UX</a></li>
       <li><a href="https://soundcloud.com/czeknology">Music Production</a></li>
-      <li><button id="photography" title="Next picture">Photography</button></li>
+      <li><button id="photography-button" title="Next picture">Photography</button></li>
     </ul>
+
+    <div class="gallery-controls">
+      <button class="gallery-control-btn" id="previous-button"><</button>
+      <button class="gallery-control-btn" id="next-button">></button>
+    </div>
   </div>
 
   <script>
@@ -70,10 +75,21 @@
     images = shuffle(images);
 
     const body = document.body;
-    const photography = document.getElementById('photography');
+    const photographyButton = document.getElementById('photography-button');
+    const previousButton = document.getElementById('previous-button');
+    const nextButton = document.getElementById('next-button');
 
     let index = -1;
     let timeout;
+
+    const previousImage = () => {
+      index = index - 1 < 0 ? images.length - 1 : index - 1;
+      body.style.backgroundImage = `url(${images[index]})`
+
+      const image = new Image();
+      image.src = `${images[index - 1]}`;
+    }
+
     const nextImage = () => {
       index = index === images.length - 1 ? 0 : index + 1;
       body.style.backgroundImage = `url(${images[index]})`
@@ -87,7 +103,9 @@
     nextImage();
     cycle();
 
-    photography.addEventListener('click', () => { clearTimeout(timeout); nextImage(); cycle(); });
+    photographyButton.addEventListener('click', () => { clearTimeout(timeout); nextImage(); cycle(); });
+    previousButton.addEventListener('click', () => { clearTimeout(timeout); previousImage(); cycle(); });
+    nextButton.addEventListener('click', () => { clearTimeout(timeout); nextImage(); cycle(); });
 
   </script>
 
