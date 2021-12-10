@@ -34,6 +34,7 @@ body {
 
 .container.hide {
   opacity: 0;
+  transition: 1s 1s opacity ease-in-out;
 }
 
 #overlay {
