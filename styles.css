@@ -83,6 +83,12 @@ h1 {
   text-shadow: 1px 1px #ffffff;
 }
 
+@media (max-width: 1900px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
 @media (max-width: 700px) {
   h1 {
     font-size: 3rem;
