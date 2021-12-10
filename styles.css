@@ -28,6 +28,12 @@ body {
   justify-content: center;
   padding-left: 20vw;
   padding-right: 20vw;
+  opacity: 1;
+  transition: .2s opacity ease-in-out;
+}
+
+.container.hide {
+  opacity: 0;
 }
 
 #overlay {
@@ -79,6 +85,10 @@ h1 {
 @media (max-width: 700px) {
   h1 {
     font-size: 3rem;
+  }
+
+  .tag-cloud {
+    display: none;
   }
 }
 
